@@ -36,22 +36,22 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/static/mock/index.json').then(res => {
-        res = res.data
-        if (res.ret && res.data) {
-          const data = res.data
-          this.city = data.city
-          this.swiperList = data.swiperList
-          this.iconList = data.iconList
-          this.recommendList = data.recommendList
-          this.weekendList = data.weekendList
-        }
-      }).catch(err => {
-        console.log(err)
-      })
+      axios.get('/static/mock/index.json')
+        .then(this.getHomeInfoSucc)
+        .catch(err => {
+          console.log(err)
+        })
     },
     getHomeInfoSucc (res) {
-      console.log(res)
+      res = res.data
+      if (res.ret && res.data) {
+        const data = res.data
+        this.city = data.city
+        this.swiperList = data.swiperList
+        this.iconList = data.iconList
+        this.recommendList = data.recommendList
+        this.weekendList = data.weekendList
+      }
     }
   },
   mounted () {
