@@ -62,7 +62,6 @@ export default {
     },
     handleLetterClick (e) {
       this.$emit('change', e.target.innerText)
-      console.log('click事件执行一次')
     }
   }
 }
